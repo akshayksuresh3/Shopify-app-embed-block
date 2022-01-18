@@ -54,9 +54,6 @@
     <div id="faq-page" style="display: none;">
       {%- render 'faq' -%}
     </div>
-    <div id="chat" style="display: none;">
-      <input value="{{block.settings.whatsapp_url}}" id="url-input" />
-    </div>
     <div id="rewards-page" style="display: none;">
       {%- render 'rewards-home' -%}
 
@@ -65,7 +62,7 @@
       {%- render 'track-order' -%}
     </div>
   </div>
-  <div class="bottom-bar" onclick="TrackOrder.poweredClick()">
+  <div class="bottom-bar">
     <span style="color:{{block.settings.fill_color}}">Powered by businessonbot</span>
   </div>
   <!-- <button id="small-close-button" style="cursor: pointer;">{{block.settings.closebtn}}</button> -->
@@ -90,14 +87,6 @@
 "id": "fill_color",
 "label": "Primary color",
 "default": "#DC3267"
-},{
-"type": "text",
-"id": "whatsapp_url",
-"label": "Whatsapp Url"
-},{
-"type": "text",
-"id": "api_url",
-"label": "Api url"
 },{
 "type": "text",
 "id": "rewards_desc",

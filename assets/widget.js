@@ -4,11 +4,11 @@ phonenumber = '';
 couponCode = '';
 apiUrl = 'https://dev-asgard.bobot.in';
 clientName = 'Test Bob';
-clientId = ''
 faq = [{
   "question": "How to place an order",
   "answer": "From store you can place an order"
 }]
+whatsappUrl = "https://wa.me/+919148614959"
 
 class MainButton extends HTMLButtonElement {
 
@@ -48,8 +48,7 @@ class MainButton extends HTMLButtonElement {
 
   // For navigating to a whatsapp number on clicking chat
   navigateToPage() {
-    console.log(document.getElementById('url-input').value)
-    window.open(document.getElementById('url-input').value, '_blank')
+    window.open(whatsappUrl, '_blank')
   }
 
   // For showing faq
@@ -108,8 +107,6 @@ class MainButton extends HTMLButtonElement {
     fetch(url).then(res => {
       return res.json()
     }).then(res => {
-      console.log('got response')
-      console.log(res);
       apiUrl = res?.Item?.server_url ?? 'https://dev-asgard.bobot.in'
       faq = res?.Item?.faq ?? [
         {
@@ -117,8 +114,21 @@ class MainButton extends HTMLButtonElement {
           "answer": "from store"
         }
       ]
+      if (res.Item.whatsappNumber) {
+        whatsappUrl = `https://wa.me/${res?.Item?.whatsappNumber}`
+      } else {
+        whatsappUrl = "https://wa.me/+919148614959"
+      }
+
     }).catch((err) => {
       console.log(err)
+      apiUrl = 'https://dev-asgard.bobot.in';
+      clientName = 'Test Bob';
+      faq = [{
+        "question": "How to place an order",
+        "answer": "From store you can place an order"
+      }]
+      whatsappUrl = "https://wa.me/+919148614959"
     })
   }
 
@@ -217,7 +227,7 @@ class Rewards extends HTMLDivElement {
 
   // Calling reward points api to get the reward points present for a number
   getRewardPoints() {
-    let url = document.getElementById('api-url').value
+    let url = apiUrl
     let number = document.getElementById('phone-input-bob').value
     phonenumber = number;
     if (phonenumber.length < 10 || phonenumber.length > 13) {
@@ -294,10 +304,9 @@ class Rewards extends HTMLDivElement {
 
   // Calling api to get the coupon code
   getCoupon() {
-    let url = document.getElementById('api-url').value
     let email = document.getElementById('email-input-bob').value
     let points = document.getElementById('point-input-bob').value
-    url = `${url}/discount_code/${phonenumber}`
+    let url = `${apiUrl}/discount_code/${phonenumber}`
     const regEx = /^[\w\.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/g;
     const pointsError = document.getElementById('reward-points-error')
     if (!regEx.test(email)) {
