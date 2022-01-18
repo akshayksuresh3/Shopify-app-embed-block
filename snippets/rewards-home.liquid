@@ -1,0 +1,76 @@
+<div id="rewards-page1" is="rewards-page1">
+    <div style="display: none;">
+        <input id="api-url" value={{block.settings.api_url}} />
+    </div>
+    <div style="text-align: center; font-weight: 600;">
+        Check Points
+    </div>
+    <div style="margin-top: 20px;text-align: center;">
+        {{block.settings.rewards_desc}}
+    </div>
+    <div style="margin-top: 20px;text-align: center;">
+        <input placeholder="Phone Number" class="phone-input" id="phone-input-bob" />
+    </div>
+    <div style="text-align: center;">
+        <button class="check-btn" style="background-color: {{block.settings.fill_color}};" id="reward-check-button">
+            Check Now
+        </button>
+        <span id="spinner-rewards" style="display: none;position: relative;top:50px">
+            <svg class="spinner" viewBox="0 0 50 50">
+                <circle class="path" cx="25" cy="25" r="10" fill="none" stroke-width="2"></circle>
+            </svg>
+        </span>
+    </div>
+    <div id="reward-check-error" style="display: none;" class="error-style">
+
+    </div>
+</div>
+<div id="rewards-page2" style="display: none;">
+    <div style="text-align: center; font-weight: 600;font-size: 30px;color:#FFD700" id="reward-points-number">
+    </div>
+    <div style="margin-top: 10px;text-align: center;" id="reward-points-desc">
+    </div>
+    <div style="margin-top: 20px;text-align: center;">
+        <input placeholder="Email" class="phone-input" id="email-input-bob" style="display: none;" />
+    </div>
+    <div style="margin-top: 10px;text-align: center;">
+        <input placeholder="Enter points" class="phone-input" id="point-input-bob" style="display: none;" />
+    </div>
+    <div style="text-align: center;">
+        <button class="check-btn" style="display: none; background-color: {{block.settings.fill_color}}"
+            id="coupon-create-button">
+            Get Coupon
+        </button>
+        <span id="spinner-coupon" style="display: none;position: relative;top:50px">
+            <svg class="spinner" viewBox="0 0 50 50">
+                <circle class="path" cx="25" cy="25" r="10" fill="none" stroke-width="2"></circle>
+            </svg>
+        </span>
+    </div>
+    <div id="reward-points-error" style="display: none;" class="error-style">
+
+    </div>
+</div>
+
+<div id="rewards-page3" style="display: none;">
+    <div
+        style="width:100%;height:120px;color:{{block.settings.fill_color}};font-size:30px;background-color: rgba(179, 176, 176, 0.281);text-align: center;padding-top: 30px;">
+        <span id="coupon-code-bob"></span>
+        <a id="copy-clipboard" style="position: relative;top: 5px;cursor: pointer;" title="Copy to clipboard">
+            <svg xmlns="http://www.w3.org/2000/svg" height="30px" width="30px" class="h-6 w-6" fill="none"
+                viewBox="0 0 24 24" stroke={{block.settings.fill_color}}>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+        </a>
+        <span id="check-mark" style="display: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" height="30px" width="30px" fill="none"
+                viewBox="0 0 24 24" stroke={{block.settings.fill_color}}>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+        </span>
+    </div>
+    <div style="text-align: center;margin-top: 20px;">
+        {{block.settings.coupon_desc}}
+    </div>
+</div>

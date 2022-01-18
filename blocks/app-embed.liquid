@@ -1,0 +1,114 @@
+<button is="main-button" id="main-button" style="background-color: {{block.settings.fill_color}}">
+  <span style="position: relative;top:5px"> {%- render 'icon-chat' -%}</span> <span id="testt"
+    style="color: white;margin-left: 10px;position: relative; top: -5px">{{block.settings.btnname}}</span>
+</button>
+
+<button is="close-button" style="background-color: {{block.settings.fill_color}}" id="close-button">
+  <span style="position: relative;top:5px"> {%- render 'icon-close' -%}</span>
+</button>
+{%- assign test1 = 'hello' -%}
+<div class="boxclass" id="card-box">
+  <div style="display: none;" id="shop-id-bob">{{shop.id}}</div>
+  <div class="top-bar" style="background-color: {{block.settings.fill_color}}">
+    <div style="position: absolute;top:50%; left:50%; transform: translate(-50%,-50%); color: #fff">Help
+    </div>
+    <div class="small-close" id="small-close-button">
+      {%- render 'icon-close-small' -%}
+    </div>
+    <div class="back-icon" id="back-button" style="display: none;cursor: pointer;">
+      {%- render 'icon-back' -%}
+    </div>
+  </div>
+  <div class="contents">
+    <div id="page1" style="position: absolute;top:50%;left:50%;transform: translate(-50%, -50%);">
+      <div class="flex">
+        <div class="card" id="track-order-card">
+          <div style="text-align: center;">
+            {%- render 'icon-truck' -%}
+          </div>
+          Track Order
+        </div>
+
+        <div class="card" id="rewards-card">
+          <div style="text-align: center;">
+            {%- render 'icon-gift' -%}
+          </div>
+          Rewards
+        </div>
+      </div>
+      <div class="flex">
+        <div class="card" id="chat-card">
+          <div style="text-align: center;">
+            {%- render 'icon-chatlogo' -%}
+          </div>
+          Chat
+        </div>
+        <div class="card" id="faq-card">
+          <div style="text-align: center;">
+            {%- render 'icon-heart' -%}
+          </div>
+          Faq
+        </div>
+      </div>
+    </div>
+    <div id="faq-page" style="display: none;">
+      {%- render 'faq' -%}
+    </div>
+    <div id="chat" style="display: none;">
+      <input value="{{block.settings.whatsapp_url}}" id="url-input" />
+    </div>
+    <div id="rewards-page" style="display: none;">
+      {%- render 'rewards-home' -%}
+
+    </div>
+    <div id="track-page" style="display: none;">
+      {%- render 'track-order' -%}
+    </div>
+  </div>
+  <div class="bottom-bar" onclick="TrackOrder.poweredClick()">
+    <span style="color:{{block.settings.fill_color}}">Powered by businessonbot</span>
+  </div>
+  <!-- <button id="small-close-button" style="cursor: pointer;">{{block.settings.closebtn}}</button> -->
+</div>
+
+
+{% schema %}
+{
+"name": "Party",
+"target": "body",
+"stylesheet": "widget.css",
+"javascript": "widget.js",
+"settings": [
+{
+"type": "text",
+"id": "btnname",
+"label": "Button Text",
+"default": "Whatsapp"
+},
+{
+"type": "color",
+"id": "fill_color",
+"label": "Primary color",
+"default": "#DC3267"
+},{
+"type": "text",
+"id": "whatsapp_url",
+"label": "Whatsapp Url"
+},{
+"type": "text",
+"id": "api_url",
+"label": "Api url"
+},{
+"type": "text",
+"id": "rewards_desc",
+"label":"Rewards Description",
+"default": "Enter your phone number to know how many reward points you have."
+},{
+"type": "text",
+"id": "coupon_desc",
+"label":"Coupon Description",
+"default": "Congratulations!! You can now use above coupon code to get discount."
+}
+]
+}
+{% endschema %}

@@ -1,0 +1,26 @@
+<div is="track-order" id="track-order">
+    <div style="text-align: center;font-weight: 700;font-size: 30px;">
+        Track Order
+    </div>
+
+    <div style="margin-top: 10px;text-align: center;">
+        <input placeholder="Order Id" class="phone-input" id="track-order-id" />
+    </div>
+    <div style="margin-top: 10px;text-align: center;">
+        <input placeholder="Phone Number" class="phone-input" id="track-order-phone" />
+    </div>
+    <div style="text-align: center;margin-top: 20px;">
+        <button class="check-btn" style="background-color: {{block.settings.fill_color}}" id="track-button">
+            Track
+        </button>
+        <span id="spinner-track-order" style="position: relative;top:50px;display: none;">
+            <svg class="spinner" viewBox="0 0 50 50">
+                <circle class="path" cx="25" cy="25" r="10" fill="none" stroke-width="2"></circle>
+            </svg>
+        </span>
+    </div>
+</div>
+
+<div id="order-status" style="display: none;">
+    Shipped
+</div>
